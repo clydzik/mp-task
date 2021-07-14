@@ -34,7 +34,7 @@ class BalanceServiceTest {
         val expectedBalance = Balance(
                 USER.id,
                 monetaryAmount = MonetaryAmount(
-                        amount = Amount.from("26.05"),
+                        amount = Amount.from("26.05000"),
                         currency = TARGET_CURRENCY
                 ),
         )

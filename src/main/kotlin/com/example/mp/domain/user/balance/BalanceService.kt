@@ -4,6 +4,7 @@ import com.example.mp.domain.currency.CurrencyRateRepository
 import com.example.mp.domain.user.Id
 import com.example.mp.domain.user.UserRepository
 import org.springframework.stereotype.Service
+import java.math.RoundingMode
 
 @Service
 class BalanceService(
@@ -24,7 +25,7 @@ class BalanceService(
     private fun convert(monetaryAmount: MonetaryAmount, currency: Currency): MonetaryAmount {
         val currencyRate = currencyRateRepository.getRate(currency)
         return MonetaryAmount(
-                amount = Amount(monetaryAmount.amount.value.divide(currencyRate.rate.value)),
+                amount = Amount(monetaryAmount.amount.value.divide(currencyRate.rate.value, 5, RoundingMode.HALF_UP)),
                 currency = currencyRate.currency
         )
     }
