@@ -1,6 +1,7 @@
 package com.example.mp
 
 import io.restassured.RestAssured
+import io.restassured.specification.RequestSpecification
 import org.junit.jupiter.api.TestInstance
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
@@ -19,5 +20,8 @@ abstract class AbstractIntegrationTestCase {
     @LocalServerPort
     private var port = 0
 
-    fun defaultRequest() = RestAssured.given().port(port).accept(MediaType.APPLICATION_JSON_VALUE)
+    fun defaultRequest(): RequestSpecification = RestAssured
+            .given()
+            .port(port)
+            .accept(MediaType.APPLICATION_JSON_VALUE)
 }
