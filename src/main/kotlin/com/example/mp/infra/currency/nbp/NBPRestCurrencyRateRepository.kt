@@ -33,7 +33,7 @@ class NBPRestCurrencyRateRepository(
 
     companion object {
 
-        private const val GET_CURRENCY_RATE_BY_CURRENCY = "/api/exchangerates/rates/A/{currency}/"
+        private const val GET_CURRENCY_RATE_BY_CURRENCY = "/api/exchangerates/rates/A/{currency}"
     }
 }
 

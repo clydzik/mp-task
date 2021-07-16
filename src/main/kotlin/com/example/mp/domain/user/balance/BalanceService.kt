@@ -25,7 +25,7 @@ class BalanceService(
     private fun convert(monetaryAmount: MonetaryAmount, currency: Currency): MonetaryAmount {
         val currencyRate = currencyRateRepository.getRate(currency)
         return MonetaryAmount(
-                amount = Amount(monetaryAmount.amount.value.divide(currencyRate.rate.value, 5, RoundingMode.HALF_UP)),
+                amount = Amount(monetaryAmount.amount.value.divide(currencyRate.rate.value, 2, RoundingMode.HALF_UP)),
                 currency = currencyRate.currency
         )
     }
